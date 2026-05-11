@@ -426,43 +426,46 @@ class _HabitTrackerScreenState extends State<HabitTrackerScreen> {
     return Drawer(
       child: Column(
         children: [
-          DrawerHeader(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFF1565C0), Color(0xFF0D47A1)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+          SizedBox(
+            width: double.infinity,
+            child: DrawerHeader(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF1565C0), Color(0xFF0D47A1)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 28,
-                  backgroundColor: Colors.white24,
-                  child: Text(
-                    name.isNotEmpty ? name[0].toUpperCase() : 'H',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 28,
+                    backgroundColor: Colors.white24,
+                    child: Text(
+                      name.isNotEmpty ? name[0].toUpperCase() : 'H',
+                      style: const TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    name.isNotEmpty ? name : 'Habitt User',
                     style: const TextStyle(
-                      fontSize: 26,
                       color: Colors.white,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  name.isNotEmpty ? name : 'Habitt User',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    widget.username,
+                    style: const TextStyle(color: Colors.white70, fontSize: 13),
                   ),
-                ),
-                Text(
-                  widget.username,
-                  style: const TextStyle(color: Colors.white70, fontSize: 13),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           _drawerItem(Icons.settings_outlined, 'Configure Habits', () {
